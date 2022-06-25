@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: neroapp-php
+spec:
+  selector:
+    app: neroapp-php
+  ports:
+  - port: 8080
+    targetPort: 8080

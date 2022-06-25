@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neroapp-php
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: neroapp-php
+  template:
+    metadata:
+      labels:
+        app: neroapp-php
+    spec:
+      containers:
+      - name: neroapp-php
+        image: neroapp-php
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
