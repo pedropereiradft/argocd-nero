@@ -17,3 +17,28 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: pedrohenriquppp/argocd-php
           tags: ${{ github.sha }}, latest
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: checkout
+        uses: imranismail/setup-kustomize@v1
+        with:
+          kustomize_version: v3.6.1
+
+      - name: update K8s
+        run: |
+          cd K8s
+          kustomize edit set image neroapp-php=pedrohenriquppp/argocd-php:${{ github.sha }}
+          cat kustomization.yaml
+
+      - name: commit
+        run: |
+          git config --local user.email "pedro.pereira@dafiti.com.br"
+          git config --local user.name "pedropereiradft"
+          git commit -am "change image tag"
+
+      - name: push
+        uses: ad-m/github-push-action@master
