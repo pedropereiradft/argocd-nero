@@ -30,7 +30,7 @@ jobs:
 
       - name: update K8s
         run: |
-          cd k8s
+          cd K8s
           kustomize edit set image neroapp-php=pedrohenriquppp/argocd-php:${{ github.sha }}
           cat kustomization.yaml
 
