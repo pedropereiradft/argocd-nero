@@ -9,4 +9,4 @@ namespace: neroapp-php
 images:
 - name: neroapp-php
   newName: pedrohenriquppp/argocd-php
-  newTag: 770cd8714180852bf3c523123b69be0949f5a545
+  newTag: 72f8224d278c689005721245434e59b0eba36e51
