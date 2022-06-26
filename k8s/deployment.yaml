@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: neroapp-php
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: neroapp-php
