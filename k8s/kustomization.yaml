@@ -1,12 +1,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - deployment.yaml
-  - service.yaml
+- deployment.yaml
+- service.yaml
 
 namespace: neroapp-php
 
 images:
-  - name: neroapp-php
-    newName: neroapp-php
-    newTag: v1
+- name: neroapp-php
+  newName: pedrohenriquppp/argocd-php
+  newTag: 598e9c732feac4c8f46020a772ceb45df0bc85cd
